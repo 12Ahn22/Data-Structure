@@ -19,7 +19,7 @@ class Node {
 }
 
 // 링크드 리스트
-class LinkedList {
+export default class LinkedList {
 	constructor() {
 		this.head = null; // 첫 번째 노드를 가리킨다
 		this.size = 0; // 링크드 리스트의 전체 크기
@@ -103,17 +103,20 @@ class LinkedList {
 		}
 		return 0;
 	}
+
+	find({ value = undefined, callback = undefined }) {
+		if (!this.head) return null;
+
+		let currentNode = this.head;
+
+		while (currentNode) {
+			if (callback && callback(currentNode)) return currentNode;
+
+			if (value !== undefined && currentNode.value === value)
+				return currentNode;
+
+			currentNode = currentNode.next;
+		}
+		return null;
+	}
 }
-
-let link = new LinkedList();
-link.insertLast('3');
-link.insertLast('4');
-link.insertLast('5');
-link.insertFirst('2');
-link.removeLast();
-
-const res = link.getAt(2);
-const res2 = link.get('5');
-console.log(res);
-console.log(res2);
-console.log(link);
