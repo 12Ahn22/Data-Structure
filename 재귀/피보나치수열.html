@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 시간복잡도가 2^n
+      function getFibo(n) {
+        // 재귀의 필수인 종료 조건
+        if (n <= 1) {
+          return n;
+        } else {
+          return getFibo(n - 1) + getFibo(n - 2);
+        }
+      }
+      console.log(getFibo(6));
+    </script>
+  </body>
+</html>
